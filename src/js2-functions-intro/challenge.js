@@ -18,6 +18,8 @@
  */
 export const createFullName = (firstName, lastName) => {
   /* Write your code here */
+  createFullName("John", "Smith")
+  return firstName + " " + lastName
 };
 
 /**
@@ -28,8 +30,13 @@ export const createFullName = (firstName, lastName) => {
  * @param {number} number2 200
  * @returns {number} 100
  */
-export const findSmallestNumber = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const findSmallestNumber = (number1, number2) => {
+  
+  if (number1 < number2) {
+    return number1;
+  } else {
+    return number2;
+  }
 };
 
 /**
@@ -40,9 +47,12 @@ export const findSmallestNumber = (/* Write the parameters here */) => {
  * @param {number} number2 6
  * @returns {number} 18
  */
-export const multiplyNumbers = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const multiplyNumbers = (number1, number2) => {
+    const multipliedNumber = number1 * number2;
+    return multipliedNumber;
+    
 };
+
 
 /* Intermediate Challenges */
 
@@ -57,8 +67,18 @@ export const multiplyNumbers = (/* Write the parameters here */) => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score, highScore) => {
-  /* Write your code here */
+  const newHighScore = score > highScore;
+
+    if (newHighScore) {
+      return "You got a new high score!";
+    } else if (score === highScore) {
+      return "So close!";
+    } else {
+      return "Better luck next Time!";
+    }
 };
+
+
 
 /**
  * A function that converts a temperature a in celsuis to fahrenheit and outputs it in a string format -> "15 degrees celsius is 59 degrees fahrenheit".
@@ -68,7 +88,14 @@ export const checkIfNewHighScore = (score, highScore) => {
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
   /* Write your code here */
+ 
+    const convertToFarenheit = (tempInCelsius * 1.8) + 32;
+    const celsiusMessage = `${tempInCelsius} degrees celsius is ${convertToFarenheit} degrees farenheit.`;
+    return celsiusMessage;
+    
 };
+
+
 
 /**
  * A function that calculates the numebr of snickers needed for the rest of your life based on the number you eat per day,
@@ -81,7 +108,12 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
   /* Write your code here */
+  
+    const snickersPerLifetime = (snickersPerDay * 365) * (maxAge - age);
+    return snickersPerLifetime;
+    
 };
+
 
 /* Advanced Challenges */
 
@@ -100,7 +132,25 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  /* Write your code here */
+  if (score > 100) {
+    return "Score unavailable";
+ } else if (score >= 80) {
+     return "A";
+ } else if (score >= 70) {
+     return "B";
+ } else if (score >= 60) {
+     return "C";
+ } else if (score >= 50) {
+     return "D";
+ } else if (score >= 40) {
+     return "E";
+ } else if (score >= 0) {
+     return "F";
+ } else if (score < 0) {
+     return "Score unavailable";
+ } else {
+     return "Score unavailable";
+ }
 };
 
 /**
@@ -131,5 +181,23 @@ export const calculateAreaOfCirlce = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  /* Write your code here */
+  const grade = getGrade(score);
+
+  switch (grade) {
+    case "A":
+      return `Congratulations ${name}! You achieved a grade of ${grade}.`;
+    case "B":
+      return `Well done ${name}! You achieved a grade of ${grade}.`;
+    case "C":
+      return `Nicely done ${name}! You achieved a grade of ${grade}.`;
+    case "D":
+      return `That's okay ${name}. You achieved a grade of ${grade}.`;
+    case "E":
+      return `Too bad ${name}. You achieved a grade of ${Grade}.`;
+    case "F":
+      return `Sorry ${name}. You achieved a grade of ${grade}. There's always next year.`;
+    default:
+      return `My apologies ${name}, there's been an error in processing your grade.`;
+  }
 };
+
