@@ -18,7 +18,7 @@
  */
 export const createFullName = (firstName, lastName) => {
   /* Write your code here */
-  createFullName("John", "Smith")
+  
   return firstName + " " + lastName
 };
 
@@ -74,7 +74,7 @@ export const checkIfNewHighScore = (score, highScore) => {
     } else if (score === highScore) {
       return "So close!";
     } else {
-      return "Better luck next Time!";
+      return "Better luck next time!";
     }
 };
 
@@ -89,8 +89,8 @@ export const checkIfNewHighScore = (score, highScore) => {
 export const celsiusToFahrenheit = (tempInCelsius) => {
   /* Write your code here */
  
-    const convertToFarenheit = (tempInCelsius * 1.8) + 32;
-    const celsiusMessage = `${tempInCelsius} degrees celsius is ${convertToFarenheit} degrees farenheit.`;
+    const convertToFahrenheit = (tempInCelsius * 1.8) + 32;
+    const celsiusMessage = `${tempInCelsius} degrees celsius is ${convertToFahrenheit} degrees fahrenheit`;
     return celsiusMessage;
     
 };
@@ -148,9 +148,12 @@ export const getGrade = (score) => {
      return "F";
  } else if (score < 0) {
      return "Score unavailable";
- } else {
+ } else if (score !== "number") {
+  return "Score unavailable";
+}  else {
      return "Score unavailable";
- }
+ } 
+ 
 };
 
 /**
@@ -160,7 +163,9 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCirlce = (radius) => {
-  /* Write your code here */
+  const area = Math.PI * radius * radius;
+  const areaTo2DecimalPlaces = area.toFixed(2);
+  return parseFloat(areaTo2DecimalPlaces);
 };
 
 /* Expert Challenge */
@@ -193,7 +198,7 @@ export const getStudentSummary = (score, name) => {
     case "D":
       return `That's okay ${name}. You achieved a grade of ${grade}.`;
     case "E":
-      return `Too bad ${name}. You achieved a grade of ${Grade}.`;
+      return `Too bad ${name}. You achieved a grade of ${grade}.`;
     case "F":
       return `Sorry ${name}. You achieved a grade of ${grade}. There's always next year.`;
     default:

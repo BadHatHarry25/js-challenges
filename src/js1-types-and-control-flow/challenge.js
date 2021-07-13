@@ -80,7 +80,17 @@ export const findLengthOfPassword = () => {
 const thing = "I am a thing";
 
 export const findType = () => {
-  // Write your code here
+  const variableType = typeof thing;
+
+  if (variableType === "string") {
+    return "This is a string";
+  } else if (variableType === "number") {
+    return "This is a number";
+  } else if (variableType === "boolean") {
+    return "This is a boolean";
+  } else {
+    return "I don't know what this thing is";
+  }
 };
 
 /**
@@ -93,7 +103,11 @@ export const findType = () => {
 const nameTagOption = "Timothy";
 
 export const getIsValidOnNameTag = () => {
-  // Write your code here
+  const firstLetter = nameTagOption.slice(0,1);
+  const firstLetterUppercase = firstLetter.toUpperCase;
+  const isvalidNameTag = nameTagOption.length <= 8;
+
+  return isvalidNameTag;
 };
 
 /* Advanced Challenges */
@@ -107,7 +121,7 @@ export const getIsValidOnNameTag = () => {
 const stringToConvert = "14.45";
 
 export const convertStringToNumber = () => {
-  // Write your code here
+  return parseFloat(stringToConvert);
 };
 
 /**
@@ -121,7 +135,9 @@ export const convertStringToNumber = () => {
 const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
 
 export const getHasUppercaseLetters = () => {
-  // Write your code here
+  const regex = /[A-Z]/g;
+  const hasUpperCaseLetters = regex.test(stringWithUppercaseLetters);
+  return hasUpperCaseLetters;
 };
 
 /* Expert Challenge */
@@ -135,5 +151,9 @@ export const getHasUppercaseLetters = () => {
 const pascalCaseVariableName = "IWantToBeSnakeCase";
 
 export const convertPascalCaseToSnakeCase = () => {
-  // Write your code here
+  
+  const splitPascal = pascalCaseVariableName.split(/(?=[A-Z])/);
+  const underscoredPascal = splitPascal.join("_");
+  const snakeCase = underscoredPascal.toLowerCase();
+  return snakeCase;
 };

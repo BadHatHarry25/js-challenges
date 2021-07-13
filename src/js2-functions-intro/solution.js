@@ -152,10 +152,8 @@ export const getGrade = (score) => {
  */
 export const calculateAreaOfCirlce = (radius) => {
   const PI = Math.PI;
-  const area = PI * radius ** 2;
-  const areaTo2DecimalPlaces = area.toFixed(2);
-
-  return parseFloat(areaTo2DecimalPlaces);
+  const area = PI * radius * radius;
+  return area;
 };
 
 /* Expert Challenge */
